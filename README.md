@@ -12,6 +12,6 @@ The rubric contains the following two questions:
     Does the web page feature a date and is this date less than two months before the date that you're grading this assignment?
     Does the web page feature an interactive map that appears to have been created with Leaflet?
 
-Example Submissionsless 
+Example Submissions
 
 Here's an extremely minimal passing example, but we hope your submission is much cooler!
