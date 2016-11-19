@@ -1,0 +1,37 @@
+---
+title: "Leaflet Example - Modern Wonders of the World"
+author: "Hansraj B"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+###Updated on `r format(Sys.time(), "%A, %B %d, %Y")`
+This is a interactive map with coordinates to the modern wonders of the world.
+Source: https://en.wikipedia.org/wiki/New7Wonders_of_the_World
+
+**Click on the markers for link to details**
+
+```{r}
+library(leaflet)
+popuptxt <- c(
+    "<a href='https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza'>Great Pyramid of Giza - Egypt</a>",
+    "<a href='https://en.wikipedia.org/wiki/Great_Wall_of_China'>Great Wall of China - China</a>",
+    "<a href='https://en.wikipedia.org/wiki/Petra'>Petra - Jordan</a>",
+    "<a href='https://en.wikipedia.org/wiki/Colosseum'>Colosseum - Italy</a>",
+    "<a href='https://en.wikipedia.org/wiki/Chichen_Itza'>Chichen Itza - Mexico</a>",
+    "<a href='https://en.wikipedia.org/wiki/Machu_Picchu'>Machu Picchu - Peru</a>",
+    "<a href='https://en.wikipedia.org/wiki/Taj_Mahal'>Taj Mahal - India</a>",
+    "<a href='https://en.wikipedia.org/wiki/Christ_the_Redeemer_(statue)'>Christ the Redeemer (statue) - Brazil</a>"
+)
+##40.432092,116.569005
+latlng <- data.frame(
+    lat=c(29.979175,40.42900,30.328611,41.890169,20.683056,-13.163333,27.175,-22.951944),
+    lng=c(31.134358,116.56750,35.441944,12.492269,-88.568611,-72.545556,78.041944,-43.210556)
+)
+latlng %>% leaflet() %>% addTiles() %>% addMarkers(popup=popuptxt,clusterOptions = markerClusterOptions())
+```
+
+
